@@ -146,10 +146,10 @@
       animation: fadeInUp .9s ease both;
     }
     .home-photo-box {
-      flex: 1; overflow: hidden; min-height: 260px;
+      height: 360px; flex-shrink: 0; overflow: hidden;
     }
     .home-photo-box img {
-      width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
+      width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block;
     }
     .home-identity {
       background: var(--identity-bg); color: var(--identity-text);
@@ -352,14 +352,14 @@
     @media (max-width: 991px) {
       .home-wrap { flex-direction: column; }
       .home-left { width: 100%; flex-direction: row; }
-      .home-photo-box { width: 200px; flex-shrink: 0; min-height: 200px; }
+      .home-photo-box { width: 200px; flex-shrink: 0; height: 260px; }
       .home-identity { flex: 1; }
       .home-right { padding: 40px 28px 60px; justify-content: flex-start; }
     }
     @media (max-width: 767px) {
       section { padding: 60px 0; }
       .home-left { flex-direction: column; }
-      .home-photo-box { width: 100%; min-height: 240px; }
+      .home-photo-box { width: 100%; height: 280px; }
       .stats-row { gap: 10px; }
       .home-right { padding: 32px 20px 60px; }
     }
@@ -460,6 +460,18 @@
         <span class="c-chip">Bank of Montreal</span><span class="c-chip">SBC Bank Philippines</span>
         <span class="c-chip">CIBM Singapore</span><span class="c-chip">NedBank South Africa</span>
         <span class="c-chip">National Australia Bank</span>
+      </div>
+      <!-- Top Certifications inline in About -->
+      <p class="about-p" style="font-weight:700;color:var(--dark);margin-top:20px">Key Certifications:</p>
+      <div class="client-chips">
+        <span class="c-chip">☸ CKA – Kubernetes Admin</span>
+        <span class="c-chip">☁ OCI 2025 Multicloud Architect Pro</span>
+        <span class="c-chip">🤖 Oracle AI Vector Search Pro</span>
+        <span class="c-chip">🔷 Azure Solutions Architect Expert</span>
+        <span class="c-chip">⚙ Azure DevOps Engineer Expert</span>
+        <span class="c-chip">🔄 Oracle GoldenGate 12c Specialist</span>
+        <span class="c-chip">🗄 Oracle Autonomous DB Specialist</span>
+        <span class="c-chip">📋 SAFe® 5 Practitioner</span>
       </div>
     </div>
   </div>
@@ -641,12 +653,20 @@
             </ul>
           </div>
           <div class="tl-sub">Certifications</div>
-          <div class="tl-item"><div class="tl-role">Azure Administrator Associate</div><div class="tl-co">Microsoft · AZ-104</div></div>
-          <div class="tl-item"><div class="tl-role">Azure Solutions Architect Expert</div><div class="tl-co">Microsoft · AZ-305</div></div>
-          <div class="tl-item"><div class="tl-role">Azure DevOps Engineer Expert</div><div class="tl-co">Microsoft · AZ-400</div></div>
-          <div class="tl-item"><div class="tl-role">Certified Kubernetes Administrator (CKA)</div><div class="tl-co">Cloud Native Computing Foundation</div></div>
-          <div class="tl-item"><div class="tl-role">Oracle GoldenGate 12c Implementation Specialist</div><div class="tl-co">Oracle Corporation</div></div>
-          <div class="tl-item"><div class="tl-role">Oracle AI Certified</div><div class="tl-co">Oracle Corporation</div></div>
+          <div class="tl-item"><div class="tl-role">Certified Kubernetes Administrator (CKA)</div><div class="tl-co">The Linux Foundation · Issued Aug 2023 · Expires Aug 2026</div></div>
+          <div class="tl-item"><div class="tl-role">OCI 2025 Certified Multicloud Architect Professional</div><div class="tl-co">Oracle Corporation</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle AI Vector Search Certified Professional</div><div class="tl-co">Oracle Corporation</div></div>
+          <div class="tl-item"><div class="tl-role">Microsoft Certified: Azure Solutions Architect Expert</div><div class="tl-co">Microsoft · AZ-305 · Issued Nov 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Microsoft Certified: Azure DevOps Engineer Expert</div><div class="tl-co">Microsoft · AZ-400 · Issued Oct 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Microsoft Certified: Azure Administrator Associate</div><div class="tl-co">Microsoft · AZ-104 · Issued Aug 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Microsoft Certified: Azure Fundamentals</div><div class="tl-co">Microsoft · AZ-900 · Issued Mar 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle Cloud Infrastructure 2021 Architect Professional</div><div class="tl-co">Oracle Corporation · Issued Feb 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle Cloud Infrastructure 2021 Architect Associate</div><div class="tl-co">Oracle Corporation · Issued Dec 2021</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle Cloud Infrastructure 2021 Cloud Operations Associate</div><div class="tl-co">Oracle Corporation · Issued Jan 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle Cloud Database Services 2021 Certified Specialist</div><div class="tl-co">Oracle Corporation · Issued Feb 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle Autonomous Database Cloud 2021 Certified Specialist</div><div class="tl-co">Oracle Corporation · Issued Feb 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle Cloud DB Migration and Integration 2021 Specialist</div><div class="tl-co">Oracle Corporation · Issued Jan 2022</div></div>
+          <div class="tl-item"><div class="tl-role">Oracle GoldenGate 12c Implementation Specialist</div><div class="tl-co">Oracle Corporation · Issued Jul 2021</div></div>
           <div class="tl-item"><div class="tl-role">SAFe® 5 Practitioner</div><div class="tl-co">Scaled Agile, Inc.</div></div>
           <div class="tl-sub">Awards</div>
           <div class="tl-item"><div class="tl-role">🏆 1st Place – ACI India Hackathon 2025</div><div class="tl-co">MCP-based AI database diagnostics tool | 15+ teams</div></div>
