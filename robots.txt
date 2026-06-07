@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://krunalsedani.github.io/sitemap.xml
