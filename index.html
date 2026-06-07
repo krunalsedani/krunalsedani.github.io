@@ -1,0 +1,684 @@
+<!--
+  KRUNAL SEDANI — Portfolio Website
+  ════════════════════════════════════════
+  Deploy to GitHub Pages in 3 steps:
+  1. Create GitHub repo named: krunalsedani.github.io
+  2. Upload this file as index.html
+  3. Settings > Pages > Branch: main > Save
+  Live at: https://krunalsedani.github.io
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Krunal Sedani — Staff Database Performance & Platform Engineer. Oracle, PostgreSQL, Cloud-Native, AI Infrastructure.">
+  <title>Krunal Sedani | Database Performance & Platform Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #04101E;
+      --bg-card: #081828;
+      --bg-alt: #061525;
+      --accent: #00DEB4;
+      --accent-dim: #009E80;
+      --gold: #FFC147;
+      --blue: #3B8BFF;
+      --text: #D8E8F0;
+      --text-muted: #6A8899;
+      --border: rgba(0,222,180,0.12);
+      --border-strong: rgba(0,222,180,0.28);
+      --shadow: 0 24px 60px rgba(0,0,0,0.5);
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    #navbar { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 18px 0; transition: all .3s ease; }
+    #navbar.scrolled { background: rgba(4,16,30,.96); backdrop-filter: blur(16px); padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; color: var(--accent); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--text); }
+    .navbar-nav .nav-link { color: var(--text-muted) !important; font-family: var(--font-body); font-weight: 500; font-size: .9rem; letter-spacing: .5px; padding: 6px 14px !important; border-radius: 6px; transition: all .2s; }
+    .navbar-nav .nav-link:hover { color: var(--accent) !important; background: rgba(0,222,180,.07); }
+    .navbar-toggler { border: 1px solid var(--border); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
+      background: radial-gradient(ellipse at 15% 60%, rgba(0,222,180,.07) 0%, transparent 55%),
+                  radial-gradient(ellipse at 85% 20%, rgba(59,139,255,.05) 0%, transparent 55%), var(--bg);
+    }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,222,180,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,222,180,.04) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-tag { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+    h1.hero-name { font-family: var(--font-head); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: #fff; margin-bottom: 20px; }
+    h1.hero-name span { color: var(--accent); }
+    .hero-typed { font-family: var(--font-body); font-size: clamp(1rem, 2.2vw, 1.25rem); color: var(--text-muted); min-height: 32px; margin-bottom: 32px; }
+    .typed-cursor { color: var(--accent); }
+    .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .hero-stat .lbl { font-size: .72rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+    .hero-stat-div { width: 1px; background: var(--border-strong); align-self: stretch; }
+    .btn-accent { background: var(--accent); color: #04101E; font-family: var(--font-body); font-weight: 600; padding: 12px 28px; border-radius: 8px; border: none; text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-accent:hover { background: #00F0C4; color: #04101E; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,222,180,.35); }
+    .btn-outline-accent { border: 1.5px solid var(--border-strong); color: var(--text); font-family: var(--font-body); font-weight: 500; padding: 11px 28px; border-radius: 8px; text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; gap: 8px; background: transparent; }
+    .btn-outline-accent:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,222,180,.06); }
+    .hero-socials { display: flex; gap: 12px; margin-top: 28px; }
+    .hero-social { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: .9rem; transition: all .2s; text-decoration: none; }
+    .hero-social:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,222,180,.08); transform: translateY(-2px); }
+
+    /* Terminal */
+    .terminal-wrap { position: relative; }
+    .terminal-glow { position: absolute; top: -40px; right: -40px; width: 280px; height: 280px; background: radial-gradient(circle, rgba(0,222,180,.12), transparent 70%); pointer-events: none; border-radius: 50%; }
+    .terminal { background: #020B16; border: 1px solid var(--border-strong); border-radius: 14px; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.05); }
+    .terminal-bar { background: #071525; padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #FF5F57; }
+    .dot-y { background: #FEBC2E; }
+    .dot-g { background: #28C840; }
+    .t-title { font-family: var(--font-mono); font-size: .75rem; color: var(--text-muted); margin-left: auto; }
+    .terminal-body { padding: 20px 20px 24px; font-family: var(--font-mono); font-size: .8rem; line-height: 1.9; }
+    .t-prompt { color: var(--accent); }
+    .t-cmd { color: #C8D8E8; }
+    .t-comment { color: #3A5A6A; }
+    .t-ok { color: #28C840; }
+    .t-val { color: var(--gold); }
+    .t-key { color: #3B8BFF; }
+    .t-dim { color: #3A5566; }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 0; }
+    .section-alt { background: var(--bg-alt); }
+    .section-tag { font-family: var(--font-mono); font-size: .75rem; color: var(--accent); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .section-tag::before { content: '//'; color: var(--accent-dim); }
+    .section-title { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #fff; letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px; }
+    .section-line { width: 48px; height: 3px; background: linear-gradient(90deg, var(--accent), transparent); border-radius: 2px; margin-bottom: 48px; }
+
+    /* ── ABOUT ── */
+    .about-bio { font-size: 1.05rem; color: var(--text); line-height: 1.85; }
+    .about-bio p { margin-bottom: 18px; }
+    .highlight { color: var(--accent); font-weight: 600; }
+    .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; text-align: center; transition: all .3s; }
+    .stat-card:hover { border-color: var(--border-strong); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.4); }
+    .stat-card .big { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .stat-card .sub { font-size: .8rem; color: var(--text-muted); margin-top: 6px; letter-spacing: .5px; }
+    .client-strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .client-chip { font-family: var(--font-mono); font-size: .72rem; background: rgba(0,222,180,.06); border: 1px solid var(--border); border-radius: 6px; padding: 5px 12px; color: var(--text-muted); letter-spacing: .3px; }
+
+    /* ── SKILLS ── */
+    .skill-group { margin-bottom: 32px; }
+    .skill-cat { font-family: var(--font-head); font-size: .8rem; font-weight: 700; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { font-family: var(--font-mono); font-size: .75rem; padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border); color: var(--text); background: var(--bg-card); transition: all .2s; }
+    .pill:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,222,180,.07); }
+    .pill.hot { border-color: rgba(255,193,71,.3); color: var(--gold); background: rgba(255,193,71,.06); }
+    .pill.new { border-color: rgba(59,139,255,.3); color: var(--blue); background: rgba(59,139,255,.06); }
+
+    /* ── EXPERIENCE TIMELINE ── */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 6px; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--accent), transparent); }
+    .tl-item { position: relative; margin-bottom: 56px; }
+    .tl-dot { position: absolute; left: -39px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg-alt); box-shadow: 0 0 12px rgba(0,222,180,.5); }
+    .tl-current .tl-dot { animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(0,222,180,.5)} 50%{box-shadow:0 0 0 8px rgba(0,222,180,0)} }
+    .tl-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 28px; transition: all .3s; }
+    .tl-card:hover { border-color: var(--border-strong); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+    .tl-period { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); letter-spacing: 1px; margin-bottom: 6px; }
+    .tl-title { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .tl-company { font-size: .9rem; color: var(--text-muted); margin-bottom: 16px; }
+    .tl-company span { color: var(--accent); font-weight: 500; }
+    .tl-context { font-size: .82rem; font-style: italic; color: var(--text-muted); background: rgba(0,222,180,.04); border-left: 2px solid var(--border-strong); padding: 8px 14px; border-radius: 0 6px 6px 0; margin-bottom: 14px; }
+    .tl-bullets { list-style: none; padding: 0; }
+    .tl-bullets li { font-size: .875rem; color: var(--text); padding: 4px 0 4px 18px; position: relative; }
+    .tl-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: .7rem; top: 7px; }
+
+    /* ── PROJECTS ── */
+    .proj-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; height: 100%; transition: all .3s; position: relative; overflow: hidden; }
+    .proj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: opacity .3s; }
+    .proj-card:hover { border-color: var(--border-strong); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+    .proj-card:hover::before { opacity: 1; }
+    .proj-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 18px; }
+    .proj-icon.teal { background: rgba(0,222,180,.12); color: var(--accent); }
+    .proj-icon.gold { background: rgba(255,193,71,.12); color: var(--gold); }
+    .proj-icon.blue { background: rgba(59,139,255,.12); color: var(--blue); }
+    .proj-icon.purple { background: rgba(180,100,255,.12); color: #B464FF; }
+    .proj-icon.orange { background: rgba(255,120,80,.12); color: #FF7850; }
+    .proj-icon.green { background: rgba(40,200,100,.12); color: #28C864; }
+    .proj-title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .proj-desc { font-size: .85rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.6; }
+    .proj-metric { font-family: var(--font-mono); font-size: .75rem; color: var(--accent); background: rgba(0,222,180,.07); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; display: inline-block; margin-bottom: 14px; }
+    .proj-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-tag { font-family: var(--font-mono); font-size: .68rem; padding: 3px 9px; border-radius: 4px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); color: var(--text-muted); }
+    .award-badge { position: absolute; top: 16px; right: 16px; background: var(--gold); color: #04101E; font-size: .65rem; font-weight: 700; padding: 3px 9px; border-radius: 20px; letter-spacing: .5px; font-family: var(--font-head); }
+
+    /* ── CERTIFICATIONS ── */
+    .cert-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center; transition: all .3s; }
+    .cert-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+    .cert-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .cert-title { font-family: var(--font-head); font-size: .82rem; font-weight: 700; color: #fff; margin-bottom: 4px; line-height: 1.3; }
+    .cert-issuer { font-size: .72rem; color: var(--text-muted); }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 36px; }
+    .contact-link { display: flex; align-items: center; gap: 10px; padding: 12px 22px; border: 1px solid var(--border); border-radius: 10px; color: var(--text); text-decoration: none; font-size: .88rem; transition: all .25s; background: rgba(255,255,255,.02); }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,222,180,.06); transform: translateY(-2px); }
+    .contact-link i { font-size: 1rem; color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 28px 0; text-align: center; font-size: .8rem; color: var(--text-muted); font-family: var(--font-mono); }
+    footer span { color: var(--accent); }
+
+    /* ── UTILITIES ── */
+    @media (max-width: 768px) {
+      section { padding: 70px 0; }
+      .hero-stats { gap: 20px; }
+      .hero-stat .num { font-size: 1.4rem; }
+      .terminal { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="navbar" class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="nav-logo" href="#hero">KS<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav gap-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7" data-aos="fade-right" data-aos-duration="800">
+        <div class="hero-tag">Database Performance Engineer</div>
+        <h1 class="hero-name">Krunal<br><span>Sedani</span></h1>
+        <div class="hero-typed">
+          <span id="typed"></span>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num">13+</div><div class="lbl">Years Exp</div></div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat"><div class="num">9+</div><div class="lbl">Bank Clients</div></div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat"><div class="num">1800</div><div class="lbl">TPS Achieved</div></div>
+          <div class="hero-stat-div"></div>
+          <div class="hero-stat"><div class="num">🏆</div><div class="lbl">Hackathon '25</div></div>
+        </div>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#projects" class="btn-accent"><i class="fas fa-code"></i> View Projects</a>
+          <a href="#contact" class="btn-outline-accent"><i class="fas fa-envelope"></i> Get in Touch</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://linkedin.com/in/krunalsedani" target="_blank" class="hero-social"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/krunalsedani" target="_blank" class="hero-social"><i class="fab fa-github"></i></a>
+          <a href="mailto:krunalsedani@gmail.com" class="hero-social"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-block" data-aos="fade-left" data-aos-duration="900">
+        <div class="terminal-wrap">
+          <div class="terminal-glow"></div>
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="dot dot-r"></span>
+              <span class="dot dot-y"></span>
+              <span class="dot dot-g"></span>
+              <span class="t-title">nfr-benchmark.sh</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="t-prompt">$</span> <span class="t-cmd">upf-bench --oracle-19c --tps 1800</span></div>
+              <div class="t-comment"># Connecting to UPF NFR cluster...</div>
+              <div><span class="t-ok">✓</span> Oracle 19c RAC <span class="t-val">3-node</span> ready</div>
+              <div><span class="t-ok">✓</span> Running Liquidity benchmark</div>
+              <div><span class="t-ok">✓</span> Throughput: <span class="t-val">1,800 TPS</span> sustained</div>
+              <div><span class="t-ok">✓</span> p99 latency: <span class="t-val">48ms</span></div>
+              <div class="t-dim">────────────────────────────</div>
+              <div><span class="t-prompt">$</span> <span class="t-cmd">pg_top_queries --limit 3</span></div>
+              <div><span class="t-key">payment_insert</span>  <span class="t-dim">1240ms</span> → <span class="t-val">28ms</span> <span class="t-ok">✓</span></div>
+              <div><span class="t-key">balance_check</span>   <span class="t-dim"> 890ms</span> → <span class="t-val">12ms</span> <span class="t-ok">✓</span></div>
+              <div><span class="t-key">txn_history</span>     <span class="t-dim"> 440ms</span> → <span class="t-val"> 9ms</span> <span class="t-ok">✓</span></div>
+              <div class="t-dim">────────────────────────────</div>
+              <div><span class="t-prompt">$</span> <span class="t-cmd">cnpg cluster status --ns nfr</span></div>
+              <div><span class="t-ok">✓</span> CloudNativePG <span class="t-val">3-node</span> healthy</div>
+              <div><span class="t-ok">✓</span> Replication lag: <span class="t-val">0ms</span></div>
+              <div><span class="t-prompt">$</span> <span class="t-cmd">_</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ABOUT ════════════ -->
+<section id="about" class="section-alt">
+  <div class="container">
+    <div class="section-tag">About Me</div>
+    <div class="section-title">Building the Database<br>Layer that Scales</div>
+    <div class="section-line"></div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="about-bio">
+          <p>I'm a <span class="highlight">Staff Database Performance & Platform Engineer</span> with 13+ years of deep expertise in Oracle and PostgreSQL for mission-critical payment infrastructure. Based in Pune, India, I work with global tier-1 banks and payment networks.</p>
+          <p>At <span class="highlight">ACI Worldwide</span>, I'm embedded directly within the core <span class="highlight">Product and NFR (Non-Functional Requirements) team</span> — not doing break-fix DBA work. I work upstream alongside Principal Performance Engineers to ensure UPF's database layer can scale before customers ever feel a problem. I've benchmarked our platform at <span class="highlight">1,800 TPS</span>, flown on-site to Jakarta and Kuala Lumpur to resolve scaling issues, and won the ACI India Hackathon 2025 with an AI-powered database diagnostics tool.</p>
+          <p>Over the last year I've expanded into <span class="highlight">cloud-native databases, Kubernetes operators, AI-augmented tooling</span>, and data engineering — building the observability and automation foundations the team relies on daily.</p>
+          <div class="client-strip">
+            <div class="client-chip">Bank Indonesia</div>
+            <div class="client-chip">Paynet Malaysia</div>
+            <div class="client-chip">Westpac</div>
+            <div class="client-chip">Rabobank</div>
+            <div class="client-chip">Bank of Montreal</div>
+            <div class="client-chip">SBC Bank Philippines</div>
+            <div class="client-chip">CIBM Singapore</div>
+            <div class="client-chip">NedBank South Africa</div>
+            <div class="client-chip">National Australia Bank</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="row g-3">
+          <div class="col-6"><div class="stat-card"><div class="big">13+</div><div class="sub">Years of Experience</div></div></div>
+          <div class="col-6"><div class="stat-card"><div class="big">9+</div><div class="sub">Global Bank Clients</div></div></div>
+          <div class="col-6"><div class="stat-card"><div class="big">1800</div><div class="sub">TPS Benchmarked</div></div></div>
+          <div class="col-6"><div class="stat-card"><div class="big">🏆</div><div class="sub">Hackathon Winner '25</div></div></div>
+          <div class="col-12"><div class="stat-card"><div class="big" style="font-size:1.1rem;letter-spacing:-0.5px">Oracle · PostgreSQL · Kubernetes · AI</div><div class="sub">Core Stack</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SKILLS ════════════ -->
+<section id="skills">
+  <div class="container">
+    <div class="section-tag">Technical Expertise</div>
+    <div class="section-title">Skills & Stack</div>
+    <div class="section-line"></div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="skill-group">
+          <div class="skill-cat">Databases</div>
+          <div class="skill-pills">
+            <span class="pill">Oracle 10g–19c</span><span class="pill">PostgreSQL 15</span><span class="pill">RAC & ASM</span><span class="pill">Multitenant CDB/PDB</span><span class="pill">Crunchy Data</span><span class="pill">Aurora PG</span><span class="pill">Azure Flexible Server</span><span class="pill">Sybase ASE</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="skill-group">
+          <div class="skill-cat">Replication & Streaming</div>
+          <div class="skill-pills">
+            <span class="pill">Oracle GoldenGate 19c</span><span class="pill">OGG Microservices</span><span class="pill">GG Bigdata</span><span class="pill">PostgreSQL BDR 5</span><span class="pill">Kafka Handler</span><span class="pill">Apache Kafka</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="skill-group">
+          <div class="skill-cat">Observability <span style="color:var(--gold);font-size:.65rem">★ NEW</span></div>
+          <div class="skill-pills">
+            <span class="pill new">Prometheus</span><span class="pill new">Grafana</span><span class="pill new">OpenTelemetry</span><span class="pill new">Grafana Tempo</span><span class="pill">pg_stat_statements</span><span class="pill">AWR / ASH</span><span class="pill">OEM 12c/13c</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="skill-group">
+          <div class="skill-cat">Cloud & Kubernetes</div>
+          <div class="skill-pills">
+            <span class="pill hot">Azure</span><span class="pill">AWS</span><span class="pill hot">Kubernetes (CKA)</span><span class="pill new">CloudNativePG</span><span class="pill">Crunchy Operator</span><span class="pill">Helm</span><span class="pill">ArgoCD</span><span class="pill">Docker</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="skill-group">
+          <div class="skill-cat">AI & Data Engineering <span style="color:var(--blue);font-size:.65rem">★ NEW</span></div>
+          <div class="skill-pills">
+            <span class="pill new">pgvector</span><span class="pill new">RAG Pipelines</span><span class="pill new">LangChain</span><span class="pill new">Python (psycopg2)</span><span class="pill new">dbt Core</span><span class="pill">Apache Airflow</span><span class="pill">MCP Protocol</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="skill-group">
+          <div class="skill-cat">HA / DR & Automation</div>
+          <div class="skill-pills">
+            <span class="pill">Data Guard</span><span class="pill">RMAN / ZDLRA</span><span class="pill">tpaexec (EDB)</span><span class="pill">Jenkins CI/CD</span><span class="pill">Shell Scripting</span><span class="pill">GIT / SVN</span><span class="pill">YAML / GitOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px;font-size:.75rem;color:var(--text-muted);font-family:var(--font-mono);">
+      <span style="color:var(--gold)">★ NEW</span> = added in last 12 months &nbsp;|&nbsp; <span style="color:var(--blue)">★ NEW</span> = AI/data engineering stack &nbsp;|&nbsp; <span style="color:var(--accent)">★</span> = certified
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ EXPERIENCE ════════════ -->
+<section id="experience" class="section-alt">
+  <div class="container">
+    <div class="section-tag">Career Journey</div>
+    <div class="section-title">Professional Experience</div>
+    <div class="section-line"></div>
+    <div class="row">
+      <div class="col-lg-10">
+        <div class="timeline">
+
+          <!-- ACI -->
+          <div class="tl-item tl-current" data-aos="fade-up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-period">Jan 2022 — Present</div>
+              <div class="tl-title">Staff Software Engineer – Database Performance & Platform</div>
+              <div class="tl-company"><span>ACI Worldwide</span>, Pune, India</div>
+              <div class="tl-context">UPF (Universal Payment Framework) — immediate-payment platform | Oracle 19c · PostgreSQL BDR 5 · Crunchy Data on Azure</div>
+              <ul class="tl-bullets">
+                <li>Embedded in the core <strong>Product & NFR team</strong> — scaling UPF database performance at the product level alongside Principal Performance Engineers</li>
+                <li>Benchmarked UPF at <strong>1,800 TPS</strong> (Oracle 19c with Liquidity); profiled and resolved bottlenecks in execution plans, I/O, and connection pooling</li>
+                <li>Built full-stack observability platform: <strong>Prometheus + Grafana + OpenTelemetry</strong> — reduced MTTD from 4 hours to 8 minutes across 9 customer topologies</li>
+                <li>Deployed <strong>CloudNativePG on Kubernetes</strong> for NFR environments — cluster setup time: 3 days → 12 minutes with GitOps automation</li>
+                <li>Built <strong>pgvector RAG pipeline</strong> over 2 years of NFR history — engineers query past performance incidents in natural language; adopted by 4 teams</li>
+                <li>Supporting <strong>National Australia Bank</strong> on 3-node Crunchy Data PostgreSQL cluster on Azure (AKS) — p99 under 120ms, failover 11 seconds</li>
+                <li>Built <strong>Python + dbt pipeline</strong> for benchmark reporting — automated assembly time: 1–2 days → 30 minutes</li>
+                <li>Conducted <strong>FinOps review</strong> for 2 customers on Azure Flexible Server — ~30% cost reduction, $4,200/month saved</li>
+                <li><strong>🏆 ACI India Hackathon Winner (Oct 2025)</strong> — MCP-based database diagnostics tool, 1st of 15+ teams, now live across ACI</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- VOIS -->
+          <div class="tl-item" data-aos="fade-up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-period">Sep 2019 — Dec 2021</div>
+              <div class="tl-title">Oracle/PostgreSQL DBA & DevOps Consultant</div>
+              <div class="tl-company"><span>Vodafone Intelligent Solutions (VOIS)</span>, Pune, India</div>
+              <div class="tl-context">Vodafone Germany post-acquisition data consolidation — integrating 2–3 acquired companies into unified data pipelines via Oracle GoldenGate</div>
+              <ul class="tl-bullets">
+                <li>Designed OGG 19c replication pipelines as backbone of cross-database consolidation (Oracle, PostgreSQL, Sybase ASE)</li>
+                <li>Led team of 5 to deliver OGG solutions; translated German client requirements into replication and data transformation architectures</li>
+                <li>Built real-time Oracle-to-Kafka streaming via OGG Kafka Handler for downstream analytics</li>
+                <li>Automated deployments using Jenkins CI/CD, GIT, Shell scripting | <strong>🏅 'Pat on Back' award (Dec 2020)</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- HSBC -->
+          <div class="tl-item" data-aos="fade-up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-period">Dec 2015 — Sep 2019</div>
+              <div class="tl-title">Senior Oracle Database Administrator</div>
+              <div class="tl-company"><span>HSBC Bank</span>, Pune, India</div>
+              <ul class="tl-bullets">
+                <li>Resolved critical performance issues for HSBC Internet Banking, AML, KYC, Screening, and OTP systems</li>
+                <li>Managed Data Guard switchovers, RAC administration, RMAN recoveries, and OGG cross-region replication</li>
+                <li><strong>🏅 3× 'Best Team Player' award</strong> for cross-team collaboration during major incidents</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Citi -->
+          <div class="tl-item" data-aos="fade-up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-period">Nov 2013 — Dec 2015</div>
+              <div class="tl-title">Oracle Database Administrator</div>
+              <div class="tl-company"><span>Citi Bank Project – Wipro Technology</span>, Mumbai, India</div>
+              <ul class="tl-bullets">
+                <li>Administered Oracle RDBMS 11g for Citi Bank's Payment and Finance backbone databases</li>
+                <li>Ranked 2nd of 80 freshers in Wipro training | <strong>🏅 'Smart Learner' award</strong></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PROJECTS ════════════ -->
+<section id="projects">
+  <div class="container">
+    <div class="section-tag">What I've Built</div>
+    <div class="section-title">Featured Projects</div>
+    <div class="section-line"></div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="proj-card">
+          <div class="award-badge">🏆 Hackathon Winner</div>
+          <div class="proj-icon gold"><i class="fas fa-robot"></i></div>
+          <div class="proj-title">MCP Database Diagnostics Tool</div>
+          <div class="proj-desc">AI-powered tool connecting to Oracle/PostgreSQL NFR databases via MCP protocol. Engineers query database performance metrics conversationally. Extended with pgvector RAG over 2 years of historical performance data.</div>
+          <div class="proj-metric">4 teams using · 2025 ACI Hackathon #1</div>
+          <div class="proj-tech">
+            <span class="tech-tag">MCP Protocol</span><span class="tech-tag">pgvector</span><span class="tech-tag">LangChain</span><span class="tech-tag">Claude API</span><span class="tech-tag">Python</span><span class="tech-tag">Oracle</span><span class="tech-tag">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="proj-card">
+          <div class="proj-icon teal"><i class="fas fa-chart-line"></i></div>
+          <div class="proj-title">Full-Stack Observability Platform</div>
+          <div class="proj-desc">End-to-end observability for UPF databases — Prometheus scrapers for Oracle and PostgreSQL, 4 Grafana dashboards, OpenTelemetry traces from API to SQL, AlertManager with PagerDuty and Slack integration.</div>
+          <div class="proj-metric">MTTD: 4 hrs → 8 mins · 9 topologies covered</div>
+          <div class="proj-tech">
+            <span class="tech-tag">Prometheus</span><span class="tech-tag">Grafana</span><span class="tech-tag">OpenTelemetry</span><span class="tech-tag">Grafana Tempo</span><span class="tech-tag">Python</span><span class="tech-tag">Oracle V$SQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="proj-card">
+          <div class="proj-icon blue"><i class="fab fa-kubernetes"></i></div>
+          <div class="proj-title">CloudNativePG on Kubernetes</div>
+          <div class="proj-desc">Moved NFR PostgreSQL environment management to Kubernetes using CloudNativePG operator. GitOps with ArgoCD — merge a YAML, get a cluster in 12 minutes. Automated HA validation with failover time measurement.</div>
+          <div class="proj-metric">Setup: 3 days → 12 mins · Failover: 8-12 sec</div>
+          <div class="proj-tech">
+            <span class="tech-tag">Kubernetes</span><span class="tech-tag">CloudNativePG</span><span class="tech-tag">Helm</span><span class="tech-tag">ArgoCD</span><span class="tech-tag">Azure Blob</span><span class="tech-tag">GitOps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="proj-card">
+          <div class="proj-icon orange"><i class="fas fa-cloud"></i></div>
+          <div class="proj-title">NAB Crunchy Data on Azure</div>
+          <div class="proj-desc">3-node Crunchy PostgreSQL cluster on AKS for National Australia Bank's UPF deployment. Designed topology, tuned for UPF write profile, configured PgBouncer, validated zero-RPO failover. Reusable pattern for future Azure clients.</div>
+          <div class="proj-metric">p99 &lt; 120ms · Failover: 11 sec · Zero RPO</div>
+          <div class="proj-tech">
+            <span class="tech-tag">Crunchy Data</span><span class="tech-tag">AKS</span><span class="tech-tag">Azure Disks</span><span class="tech-tag">PgBouncer</span><span class="tech-tag">Private Endpoint</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="proj-card">
+          <div class="proj-icon purple"><i class="fas fa-database"></i></div>
+          <div class="proj-title">Python + dbt Benchmark Pipeline</div>
+          <div class="proj-desc">Automated data pipeline ingesting AWR snapshots, pg_stat_statements deltas, and Kafka TPS streams into a unified PostgreSQL warehouse modelled in dbt. Grafana dashboard auto-renders after every benchmark run.</div>
+          <div class="proj-metric">Report time: 2 days → 30 minutes</div>
+          <div class="proj-tech">
+            <span class="tech-tag">dbt Core</span><span class="tech-tag">Python</span><span class="tech-tag">Apache Airflow</span><span class="tech-tag">Kafka</span><span class="tech-tag">Grafana</span><span class="tech-tag">cx_Oracle</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="proj-card">
+          <div class="proj-icon green"><i class="fas fa-coins"></i></div>
+          <div class="proj-title">Azure PostgreSQL FinOps Review</div>
+          <div class="proj-desc">Structured FinOps audit of two UPF customers on Azure Flexible Server. Identified tier mismatch, storage over-provisioning, and pay-as-you-go pricing. Validated tier downgrades in NFR before production change. FinOps checklist now standard.</div>
+          <div class="proj-metric">~30% cost reduction · $4,200/month saved</div>
+          <div class="proj-tech">
+            <span class="tech-tag">Azure Flexible Server</span><span class="tech-tag">Azure Monitor</span><span class="tech-tag">Reserved Instances</span><span class="tech-tag">pgbench</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CERTIFICATIONS ════════════ -->
+<section id="certifications" class="section-alt">
+  <div class="container">
+    <div class="section-tag">Credentials</div>
+    <div class="section-title">Certifications</div>
+    <div class="section-line"></div>
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="cert-card">
+          <div class="cert-icon">☁️</div>
+          <div class="cert-title">Azure Administrator</div>
+          <div class="cert-issuer">Microsoft · AZ-104</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="40">
+        <div class="cert-card">
+          <div class="cert-icon">🏗️</div>
+          <div class="cert-title">Azure Solutions Architect</div>
+          <div class="cert-issuer">Microsoft · AZ-305</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="cert-card">
+          <div class="cert-icon">⚙️</div>
+          <div class="cert-title">Azure DevOps Engineer</div>
+          <div class="cert-issuer">Microsoft · AZ-400</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+        <div class="cert-card">
+          <div class="cert-icon">☸️</div>
+          <div class="cert-title">Certified Kubernetes Admin</div>
+          <div class="cert-issuer">CNCF · CKA</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+        <div class="cert-card">
+          <div class="cert-icon">🔄</div>
+          <div class="cert-title">Oracle GoldenGate 12c</div>
+          <div class="cert-issuer">Oracle Corporation</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="40">
+        <div class="cert-card">
+          <div class="cert-icon">🤖</div>
+          <div class="cert-title">Oracle AI</div>
+          <div class="cert-issuer">Oracle Corporation</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="80">
+        <div class="cert-card">
+          <div class="cert-icon">📋</div>
+          <div class="cert-title">SAFe® 5 Practitioner</div>
+          <div class="cert-issuer">Scaled Agile, Inc.</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+        <div class="cert-card">
+          <div class="cert-icon">🏫</div>
+          <div class="cert-title">B.Tech – Computer Engg</div>
+          <div class="cert-issuer">GCOE Amravati · CGPA 7.43</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CONTACT ════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center mb-4">
+      <div class="section-tag justify-content-center">Let's Connect</div>
+      <div class="section-title">Get in Touch</div>
+    </div>
+    <div class="contact-card" data-aos="fade-up">
+      <p style="color:var(--text-muted);font-size:1.05rem;max-width:480px;margin:0 auto;">
+        Open to <strong style="color:var(--text)">Staff / Principal Engineer</strong> roles in database performance, platform engineering, or data infrastructure — especially roles involving product-embedded work and international scope.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:krunalsedani@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> krunalsedani@gmail.com</a>
+        <a href="https://linkedin.com/in/krunalsedani" target="_blank" class="contact-link"><i class="fab fa-linkedin-in"></i> linkedin.com/in/krunalsedani</a>
+        <a href="https://github.com/krunalsedani" target="_blank" class="contact-link"><i class="fab fa-github"></i> github.com/krunalsedani</a>
+        <a href="tel:+919665632152" class="contact-link"><i class="fas fa-phone"></i> +91 96 65 632152</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="container">
+    <div>Krunal Sedani &nbsp;·&nbsp; <span>Pune, India</span> &nbsp;·&nbsp; Built with code, coffee, and 1800 TPS</div>
+    <div style="margin-top:6px;font-size:.72rem;">krunalsedani@gmail.com</div>
+  </div>
+</footer>
+
+<!-- ════════════ SCRIPTS ════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/dist/typed.umd.js"></script>
+<script>
+  // AOS Init
+  AOS.init({ duration: 700, once: true, offset: 60 });
+
+  // Typed.js
+  new Typed('#typed', {
+    strings: [
+      'Staff Database Performance Engineer',
+      'PostgreSQL BDR & Crunchy Data Specialist',
+      'Oracle 19c RAC & GoldenGate Expert',
+      'CloudNativePG on Kubernetes',
+      'AI-Augmented Database Tooling Builder',
+      'NFR & Product Performance Partner',
+    ],
+    typeSpeed: 42,
+    backSpeed: 22,
+    backDelay: 2200,
+    loop: true,
+    smartBackspace: true,
+  });
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Smooth anchor click close mobile menu
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const menu = document.getElementById('navMenu');
+      if (menu.classList.contains('show')) {
+        bootstrap.Collapse.getInstance(menu)?.hide();
+      }
+    });
+  });
+</script>
+</body>
+</html>
